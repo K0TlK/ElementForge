@@ -10,11 +10,13 @@ public class MyCharacter : ScriptableObject, ICharacter
     [SerializeField] private string characterName;
     [SerializeField] private int level;
     [SerializeField] private Sprite avatar;
+    [SerializeField] private string modelPath;
 
     public int Id => this.id;
     public string Name => this.characterName;
     public int Level => this.level;
     public Sprite Avatar => this.avatar;
+    public string ModelPath => this.modelPath;
 
 
 #if UNITY_EDITOR

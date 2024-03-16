@@ -16,3 +16,4 @@ MonoBehaviour:
   characterName: 00034-1374892542
   level: 1
   avatar: {fileID: 21300000, guid: 624990246eab31d429fcd3bbd3178544, type: 3}
+  modelPath: Character/Toot_Braustein

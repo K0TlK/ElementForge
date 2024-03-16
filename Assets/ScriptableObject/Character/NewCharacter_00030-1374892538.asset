@@ -16,3 +16,4 @@ MonoBehaviour:
   characterName: 00030-1374892538
   level: 4
   avatar: {fileID: 21300000, guid: 2be1e89da2aa87f4998e4849903fc7dc, type: 3}
+  modelPath: Character/Twilight_Character 1
