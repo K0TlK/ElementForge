@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DataPack", menuName = "Data Pack", order = 1)]
+[CreateAssetMenu(fileName = "DataPack", menuName = "Content/Data Pack", order = 1)]
 public class DataPack : ScriptableObject
 {
     [SerializeField]

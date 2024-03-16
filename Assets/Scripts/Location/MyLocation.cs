@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewLocation", menuName = "Location Data", order = 1)]
+[CreateAssetMenu(fileName = "NewLocation", menuName = "Content/Location Data", order = 1)]
 public class MyLocation : ScriptableObject, ILocation
 {
     [SerializeField] private int id;
