@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -10,16 +11,33 @@ public class CharacterDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnCharacterSelected += DisplayCharacter;
+        EventManager.OnObjectSelected += DisplayCharacter;
     }
 
     private void OnDisable()
     {
-        EventManager.OnCharacterSelected -= DisplayCharacter;
+        EventManager.OnObjectSelected -= DisplayCharacter;
     }
 
-    private void DisplayCharacter(MyCharacter character)
+    private void DisplayCharacter(IObject newObject)
     {
+        MyCharacter character;
+
+        try
+        {
+            character = (MyCharacter)newObject;
+        }
+        catch (InvalidCastException)
+        {
+            Debug.LogError($"The provided object cannot be cast to MyCharacter.");
+            return;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Error: {ex.Message}");
+            return;
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.AppendLine(character.name);
         sb.AppendLine();

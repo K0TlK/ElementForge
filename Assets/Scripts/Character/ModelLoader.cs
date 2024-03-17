@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ModelLoader : MonoBehaviour
@@ -6,16 +7,33 @@ public class ModelLoader : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnCharacterSelected += LoadCharacterModel;
+        EventManager.OnObjectSelected += LoadCharacterModel;
     }
 
     private void OnDisable()
     {
-        EventManager.OnCharacterSelected -= LoadCharacterModel;
+        EventManager.OnObjectSelected -= LoadCharacterModel;
     }
 
-    void LoadCharacterModel(MyCharacter character)
+    void LoadCharacterModel(IObject newObject)
     {
+        MyCharacter character;
+
+        try
+        {
+            character = (MyCharacter)newObject;
+        }
+        catch (InvalidCastException)
+        {
+            Debug.LogError($"The provided object cannot be cast to MyCharacter.");
+            return;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Error: {ex.Message}");
+            return;
+        }
+
         foreach (Transform child in parent)
         {
             Destroy(child.gameObject);
